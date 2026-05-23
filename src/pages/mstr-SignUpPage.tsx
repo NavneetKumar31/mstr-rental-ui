@@ -1,34 +1,40 @@
 import { useState, type FormEvent } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-interface MruSignInPageProps {
-  onSwitchToSignUp: () => void;
+interface MstrSignUpPageProps {
+  onSwitchToSignIn: () => void;
 }
 
-export default function MruSignInPage({ onSwitchToSignUp }: MruSignInPageProps) {
+export default function MstrSignUpPage({ onSwitchToSignIn }: MstrSignUpPageProps) {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
   return (
-    <Paper className="mru-page-card">
+    <Paper className="mstr-page-card">
       <Typography component="h2" variant="h5" gutterBottom>
-        Sign in to your account
+        Create your account
       </Typography>
       <Typography color="text.secondary" sx={{ mb: 3 }}>
-        Secure access to listings, booking, and rental management.
+        Join Master Rental UI with a secure and modern onboarding flow.
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} className="mru-form-grid">
+      <Box component="form" onSubmit={handleSubmit} className="mstr-form-grid">
+        <TextField
+          label="Full name"
+          value={fullName}
+          onChange={(event) => setFullName(event.target.value)}
+          required
+        />
         <TextField
           label="Email address"
           type="email"
@@ -43,19 +49,21 @@ export default function MruSignInPage({ onSwitchToSignUp }: MruSignInPageProps) 
           onChange={(event) => setPassword(event.target.value)}
           required
         />
-        <FormControlLabel
-          control={<Checkbox color="primary" />}
-          label="Remember me"
-          sx={{ mt: 0 }}
+        <TextField
+          label="Confirm password"
+          type="password"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+          required
         />
         <Button type="submit" size="large" fullWidth>
-          Continue
+          Create account
         </Button>
       </Box>
-      <Box className="mru-form-footer">
-        <Typography color="text.secondary">New here?</Typography>
-        <Link component="button" variant="body2" onClick={onSwitchToSignUp} sx={{ fontWeight: 700 }}>
-          Create an account
+      <Box className="mstr-form-footer">
+        <Typography color="text.secondary">Already have an account?</Typography>
+        <Link component="button" variant="body2" onClick={onSwitchToSignIn} sx={{ fontWeight: 700 }}>
+          Sign in
         </Link>
       </Box>
     </Paper>

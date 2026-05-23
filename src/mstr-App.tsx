@@ -3,23 +3,23 @@ import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
 import Typography from '@mui/material/Typography'
 import { ThemeProvider } from '@mui/material/styles'
-import MruNavBar from './components/mru-NavBar'
-import MruSignInPage from './pages/mru-SignInPage'
-import MruSignUpPage from './pages/mru-SignUpPage'
-import { useMruNavigation } from './hooks/mru-useNavigation'
-import mruTheme from './theme/mru-theme'
-import './mru-App.css'
+import MstrNavBar from './components/mstr-NavBar'
+import MstrSignInPage from './pages/mstr-SignInPage'
+import MstrSignUpPage from './pages/mstr-SignUpPage'
+import { useMstrNavigation } from './hooks/mstr-useNavigation'
+import mstrTheme from './theme/mstr-theme'
+import './mstr-App.css'
 
-export default function MruApp() {
-  const { page, navigate } = useMruNavigation()
+export default function MstrApp() {
+  const { page, navigate } = useMstrNavigation()
 
   return (
-    <ThemeProvider theme={mruTheme}>
+    <ThemeProvider theme={mstrTheme}>
       <CssBaseline />
-      <Box className="mru-shell">
-        <MruNavBar page={page} onNavigate={navigate} />
-        <Container maxWidth="sm" className="mru-content">
-          <Box className="mru-hero">
+      <Box className="mstr-shell">
+        <MstrNavBar page={page} onNavigate={navigate} />
+        <Container maxWidth="sm" className="mstr-content">
+          <Box className="mstr-hero">
             <Typography variant="overline" color="primary" sx={{ fontWeight: 700, letterSpacing: 1.2 }}>
               Modern rental onboarding
             </Typography>
@@ -32,9 +32,9 @@ export default function MruApp() {
           </Box>
 
           {page === 'signin' ? (
-            <MruSignInPage onSwitchToSignUp={() => navigate('signup')} />
+            <MstrSignInPage onSwitchToSignUp={() => navigate('signup')} />
           ) : (
-            <MruSignUpPage onSwitchToSignIn={() => navigate('signin')} />
+            <MstrSignUpPage onSwitchToSignIn={() => navigate('signin')} />
           )}
         </Container>
       </Box>

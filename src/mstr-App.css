@@ -1,4 +1,4 @@
-.mru-shell {
+.mstr-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -6,11 +6,11 @@
   color: var(--text);
 }
 
-.mru-content {
+.mstr-content {
   padding: 40px 16px 64px;
 }
 
-.mru-hero {
+.mstr-hero {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -18,7 +18,7 @@
   text-align: center;
 }
 
-.mru-page-card {
+.mstr-page-card {
   padding: 32px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.96);
@@ -26,12 +26,12 @@
   box-shadow: 0 24px 80px rgba(15, 21, 44, 0.08);
 }
 
-.mru-form-grid {
+.mstr-form-grid {
   display: grid;
   gap: 18px;
 }
 
-.mru-form-footer {
+.mstr-form-footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

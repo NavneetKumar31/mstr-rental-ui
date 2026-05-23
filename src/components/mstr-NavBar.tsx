@@ -3,14 +3,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import type { MruPage } from '../hooks/mru-useNavigation';
+import type { MstrPage } from '../hooks/mstr-useNavigation';
 
-interface MruNavBarProps {
-  page: MruPage;
-  onNavigate: (page: MruPage) => void;
+interface MstrNavBarProps {
+  page: MstrPage;
+  onNavigate: (page: MstrPage) => void;
 }
 
-export default function MruNavBar({ page, onNavigate }: MruNavBarProps) {
+export default function MstrNavBar({ page, onNavigate }: MstrNavBarProps) {
   return (
     <AppBar position="static" color="transparent" elevation={0} sx={{ borderBottom: '1px solid rgba(15, 76, 129, 0.12)' }}>
       <Toolbar sx={{ justifyContent: 'space-between', gap: 2, flexWrap: 'wrap' }}>

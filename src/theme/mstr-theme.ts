@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const mruTheme = createTheme({
+const mstrTheme = createTheme({
   palette: {
     mode: 'light',
     primary: { main: '#0f4c81', contrastText: '#ffffff' },
@@ -32,4 +32,4 @@ const mruTheme = createTheme({
   },
 });
 
-export default mruTheme;
+export default mstrTheme;
