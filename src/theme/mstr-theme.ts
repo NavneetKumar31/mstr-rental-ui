@@ -1,35 +1,39 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import type { PaletteMode } from '@mui/material';
 
-const mstrTheme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: { main: '#0f4c81', contrastText: '#ffffff' },
-    secondary: { main: '#67d3b9', contrastText: '#0f172a' },
-    background: { default: '#f7f9fc', paper: '#ffffff' },
-    text: { primary: '#0f172a', secondary: '#526480' },
-  },
-  typography: {
-    fontFamily: ['Inter', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
-    button: { textTransform: 'none' },
-  },
-  shape: { borderRadius: 16 },
-  components: {
-    MuiButton: {
-      defaultProps: {
-        disableElevation: true,
+export function getMstrTheme(mode: PaletteMode) {
+  return responsiveFontSizes(
+    createTheme({
+      palette: { mode },
+      typography: {
+        fontFamily: ['Inter', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(','),
+        button: { textTransform: 'none' },
       },
-    },
-    MuiPaper: {
-      defaultProps: {
-        elevation: 0,
+      shape: { borderRadius: 16 },
+      components: {
+        MuiButton: {
+          defaultProps: {
+            disableElevation: true,
+          },
+        },
+        MuiPaper: {
+          defaultProps: {
+            elevation: 0,
+          },
+        },
+        MuiTextField: {
+          defaultProps: {
+            fullWidth: true,
+          },
+        },
+        MuiCssBaseline: {
+          styleOverrides: {
+            body: {
+              transition: 'background-color 0.3s, color 0.3s',
+            },
+          },
+        },
       },
-    },
-    MuiTextField: {
-      defaultProps: {
-        fullWidth: true,
-      },
-    },
-  },
-});
-
-export default mstrTheme;
+    }),
+  );
+}
